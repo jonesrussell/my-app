@@ -6,7 +6,7 @@
     "require": {
         "php": ">=8.5",
         "symfony/dotenv": "^8.0",
-        "waaseyaa/framework": "0.1.0-alpha.221"
+        "waaseyaa/framework": "0.1.0-alpha.222"
     },
     "autoload": {
         "psr-4": {
@@ -50,7 +50,8 @@
         },
         "waaseyaa": {
             "providers": [
-                "App\\Provider\\AppServiceProvider"
+                "App\\Provider\\AppServiceProvider",
+                "App\\Provider\\StoryServiceProvider"
             ]
         }
     },

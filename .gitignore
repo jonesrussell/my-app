@@ -3,5 +3,9 @@
 /files/*
 !/files/.gitkeep
 *.sqlite
+*.sqlite-*
+/storage/.db-init.lock
+/storage/demo/
+waaseyaa-server.*.log
 .env
 composer.local.json
