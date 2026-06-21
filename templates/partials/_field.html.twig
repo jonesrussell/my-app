@@ -1,0 +1,33 @@
+<div class="field">
+  <dt>{{ name|replace({'_': ' '})|title }}</dt>
+  <dd>
+    {% set display = value %}
+    {% if value is iterable %}
+      {% if value['formatted'] is defined %}
+        {% set display = value['formatted'] %}
+      {% elseif value['rendered'] is defined %}
+        {% set display = value['rendered'] %}
+      {% elseif value['label'] is defined %}
+        {% set display = value['label'] %}
+      {% elseif value|length == 3 %}
+        {% set display = value|slice(1, 1)|first %}
+      {% elseif value[1] is defined %}
+        {% set display = value[1] %}
+      {% elseif value['value'] is defined %}
+        {% set display = value['value'] %}
+      {% endif %}
+    {% endif %}
+
+    {% if display is iterable %}
+      <ul>
+        {% for item in display %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% elseif display starts with 'http://' or display starts with 'https://' %}
+      <a href="{{ display }}">{{ display }}</a>
+    {% else %}
+      {{ display|nl2br }}
+    {% endif %}
+  </dd>
+</div>

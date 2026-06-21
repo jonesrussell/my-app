@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ lang|default('en') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ title|default(site_name|default('Waaseyaa')) }}{% endblock %}</title>
+  {% block meta %}
+    <meta name="description" content="{{ description|default('A Waaseyaa starter site for structured content.') }}">
+  {% endblock %}
+  <link rel="stylesheet" href="{{ asset('/themes/default/theme.css') }}">
+  <link rel="stylesheet" href="{{ asset('/theme/brand.css') }}">
+  {% block styles %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include 'partials/_header.html.twig' %}
+
+  <main id="main-content" class="site-main">
+    {% block body %}{% endblock %}
+  </main>
+
+  {% include 'partials/_footer.html.twig' %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

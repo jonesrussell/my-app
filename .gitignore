@@ -9,3 +9,4 @@
 waaseyaa-server.*.log
 .env
 composer.local.json
+.phpunit.cache/

@@ -1,0 +1,7 @@
+<article class="card">
+  <h3>{{ title }}</h3>
+  <p>{{ body }}</p>
+  {% if href is defined and cta is defined %}
+    <a class="text-link" href="{{ href }}">{{ cta }}</a>
+  {% endif %}
+</article>

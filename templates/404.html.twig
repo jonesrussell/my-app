@@ -1,13 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>404 Not Found</title>
-</head>
-<body>
-  <main>
-    <h1>Not Found</h1>
-    <p>{{ path }}</p>
-  </main>
-</body>
-</html>
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Page not found | {{ site_name|default('Waaseyaa') }}{% endblock %}
+
+{% block body %}
+  <section class="page-shell page-shell--narrow" aria-labelledby="not-found-title">
+    <p class="eyebrow">404</p>
+    <h1 id="not-found-title">That page is not here.</h1>
+    <p class="lede">The public theme handled this missing route with a proper page, not a raw server response.</p>
+    <a class="button" href="/">Return home</a>
+  </section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}{{ entity.label|default('Content') }} | {{ site_name|default('Waaseyaa') }}{% endblock %}
+
+{% block body %}
+  <article class="page-shell entity-page">
+    <header class="page-header">
+      <p class="eyebrow">{{ entity_type|default('Content')|replace({'_': ' '})|title }}</p>
+      <h1>{{ entity.label|default('Untitled content') }}</h1>
+      {% if entity.id is defined %}
+        <p class="page-header__meta">ID: {{ entity.id }}</p>
+      {% endif %}
+    </header>
+
+    <dl class="field-list">
+      {% for name, value in fields|default({}) %}
+        {% include 'partials/_field.html.twig' with { name: name, value: value } only %}
+      {% else %}
+        <div class="empty-state">No fields were available for this entity.</div>
+      {% endfor %}
+    </dl>
+  </article>
+{% endblock %}

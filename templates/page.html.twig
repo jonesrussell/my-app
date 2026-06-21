@@ -1,14 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Waaseyaa</title>
-</head>
-<body>
-  <main>
-    <h1>Waaseyaa</h1>
-    <p>Path: {{ path }}</p>
-  </main>
-</body>
-</html>
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}{{ title|default('Page') }} | {{ site_name|default('Waaseyaa') }}{% endblock %}
+
+{% block body %}
+  <article class="page-shell">
+    <header class="page-header">
+      <p class="eyebrow">Public page</p>
+      <h1>{{ title|default('Waaseyaa page') }}</h1>
+      {% if path is defined %}
+        <p class="page-header__meta">Path: {{ path }}</p>
+      {% endif %}
+    </header>
+
+    <div class="prose">
+      {% if content is defined %}
+        {{ content|raw }}
+      {% else %}
+        <p>This app is ready for Twig-rendered public pages.</p>
+      {% endif %}
+    </div>
+  </article>
+{% endblock %}
