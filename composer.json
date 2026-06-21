@@ -6,7 +6,7 @@
     "require": {
         "php": ">=8.5",
         "symfony/dotenv": "^8.0",
-        "waaseyaa/framework": "dev-main"
+        "waaseyaa/framework": "^0.1.0-alpha.240"
     },
     "autoload": {
         "psr-4": {
@@ -19,16 +19,12 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.5 || ^11.0",
-        "wikimedia/composer-merge-plugin": "^2.1"
+        "phpunit/phpunit": "^10.5 || ^11.0"
     },
     "config": {
         "optimize-autoloader": true,
         "process-timeout": 0,
-        "sort-packages": true,
-        "allow-plugins": {
-            "wikimedia/composer-merge-plugin": true
-        }
+        "sort-packages": true
     },
     "scripts": {
         "audit-site": "./bin/maintenance/waaseyaa-audit-site",
@@ -43,12 +39,6 @@
         ]
     },
     "extra": {
-        "merge-plugin": {
-            "include": [
-                "composer.local.json"
-            ],
-            "prepend-repositories": true
-        },
         "waaseyaa": {
             "providers": [
                 "App\\Provider\\AppServiceProvider",
